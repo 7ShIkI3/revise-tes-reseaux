@@ -12,8 +12,13 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="theme.css?v=1">
   <link rel="stylesheet" href="course.css?v=1">
+  <link rel="stylesheet" href="revision.css?v=2">
+  <link rel="stylesheet" href="personal.css?v=2">
+  <script defer src="learning-content.js?v=2"></script>
+  <script defer src="revision.js?v=2"></script>
+  <script defer src="personal.js?v=2"></script>
   <script defer src="td.js"></script>
-  <script defer src="app.js"></script>
+  <script defer src="app.js?v=2"></script>
 </head>
 <body>
   <a class="skip" href="#main">Aller au contenu</a>
@@ -23,6 +28,10 @@
     <nav id="navigation">
       <a href="#accueil" data-nav="accueil"><span data-icon="home"></span>Vue d’ensemble</a>
       <a href="#cours" data-nav="cours"><span data-icon="book"></span>Le cours<span class="nav-count">6</span></a>
+      <a href="#modules" data-nav="modules"><span data-icon="network"></span>Ateliers expliqués<span class="nav-count">12</span></a>
+      <a href="#revision" data-nav="revision"><span data-icon="clock"></span>Ma révision</a>
+      <a href="#perso" data-nav="perso"><span data-icon="pen"></span>Mes cours personnels</a>
+      <a href="#recherche" data-nav="recherche"><span data-icon="list"></span>Rechercher une notion</a>
       <a href="#exercices" data-nav="exercices"><span data-icon="pen"></span>Les exercices<span class="nav-count">36</span></a>
       <a href="#td" data-nav="td"><span data-icon="list"></span>Tes TD<span class="nav-count">3</span></a>
       <a href="#quiz" data-nav="quiz"><span data-icon="bolt"></span>Les quiz</a>
@@ -33,7 +42,7 @@
     <div class="sidebar-bottom">
       <div class="sidebar-progress"><div><span>Ton parcours</span><strong id="progress-percent">0 %</strong></div><progress id="global-progress" max="98" value="0" aria-label="Chapitres lus, exercices et questions de TD terminés"></progress><p id="progress-caption">À ton rythme, une notion à la fois.</p></div>
       <a class="download-nav" href="assets/livret-reseaux.pdf" download><span data-icon="download"></span>Le livret complet <span>PDF</span></a>
-      <div class="private-label"><span data-icon="lock"></span>Espace personnel · BUT R&T</div>
+      <div class="private-label"><span data-icon="book"></span>Révisions · BUT R&T</div>
     </div>
   </aside>
   <div class="sidebar-scrim" id="scrim" hidden></div>

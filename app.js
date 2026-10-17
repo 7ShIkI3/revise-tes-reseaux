@@ -208,14 +208,17 @@ function setMenu(open) {
 function route(scroll=true) {
   if(!data)return;
   const [raw='',argument,section]=location.hash.slice(1).split('/');
-  const allowed=['accueil','cours','exercices','td','quiz','labo','formules','glossaire'];
+  const allowed=['accueil','cours','exercices','td','quiz','labo','formules','glossaire','modules','revision','perso','recherche'];
   const view=allowed.includes(raw)?raw:'accueil',id=Number(argument);
-  const labels={accueil:'Vue d’ensemble',cours:'Le cours',exercices:'Les exercices',td:'Tes TD',quiz:'Les quiz',labo:'Labo virtuel',formules:'Fiche de formules',glossaire:'Glossaire & TP'};
+  const labels={accueil:'Vue d’ensemble',cours:'Le cours',exercices:'Les exercices',td:'Tes TD',quiz:'Les quiz',labo:'Labo virtuel',formules:'Fiche de formules',glossaire:'Glossaire & TP',modules:'Ateliers expliqués',revision:'Ma révision',perso:'Mes cours personnels',recherche:'Rechercher'};
   $('#page-label').textContent=labels[view];document.title=`${labels[view]} · Révise tes réseaux`;
   document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.dataset.nav===view;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  const html=view==='cours'?renderCourses(id):view==='exercices'?renderExercises(id):view==='td'?renderTD(id,location.hash.slice(1).split('/')[2]):view==='quiz'?renderQuiz(id):view==='labo'?renderLab():view==='formules'?renderFormulas():view==='glossaire'?renderGlossary():renderHome();
+  const html=view==='modules'?renderModules(argument):view==='revision'?renderRevision():view==='perso'?window.PersonalCourses.render():view==='recherche'?renderSearch():view==='cours'?renderCourses(id):view==='exercices'?renderExercises(id):view==='td'?renderTD(id,location.hash.slice(1).split('/')[2]):view==='quiz'?renderQuiz(id):view==='labo'?renderLab():view==='formules'?renderFormulas():view==='glossaire'?renderGlossary():renderHome();
   const related=view==='cours'&&Number.isInteger(id)?data.tds.filter(td=>td.chapters.includes(id)):[];
   $('#main').innerHTML=html;updateProgress();setMenu(false);
+  if(view==='accueil')$('#main').insertAdjacentHTML('afterbegin',renderPlusHome());
+  if(view==='perso')window.PersonalCourses.mount();
+  if(view==='cours'&&id&&$('.reading-footer'))$('.reading-footer').insertAdjacentHTML('beforebegin',`<div class="note-box"><strong>Approfondir :</strong> ${window.REVISION_LEARNING.modules.filter(m=>m.chapter===id).map(m=>`<a href="#modules/${m.id}">${esc(m.title)}</a>`).join(' · ')} · <a href="#revision">Flashcards et révision →</a></div>`);
   if(related.length&&$('.reading-footer'))$('.reading-footer').insertAdjacentHTML('beforebegin',`<div class="note-box"><strong>Retrouve ces notions dans tes TD :</strong> ${related.map(td=>`<a href="#td/${td.id}">TD${td.id} · ${esc(td.title)}</a>`).join(' · ')}</div>`);
   if(view==='labo')updateLab();
   if(scroll){window.scrollTo({top:0,behavior:'instant'});$('#main').focus({preventScroll:true});}
