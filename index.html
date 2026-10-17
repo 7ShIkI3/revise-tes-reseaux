@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14293f">
+  <meta name="description" content="Apprends les réseaux depuis les bases : vocabulaire, unités, calculs expliqués, fibre et FTTH, antennes, radio et mobile. Méthodes pour les TD et TP, exercices corrigés et labo virtuel.">
+  <title>Révise tes réseaux — Cours & entraînement</title>
+  <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+  <script src="theme.js?v=1"></script>
+  <link rel="stylesheet" href="assets/katex.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="theme.css?v=1">
+  <link rel="stylesheet" href="course.css?v=1">
+  <script defer src="td.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+    <a class="brand" href="#accueil" aria-label="Révise tes réseaux, accueil"><img class="brand-mark" src="assets/logo-mark.svg" alt="" width="46" height="46"><span>révise<span class="brand-sub">tes réseaux.</span></span></a>
+    <p class="nav-caption">TON ESPACE DE RÉVISION</p>
+    <nav id="navigation">
+      <a href="#accueil" data-nav="accueil"><span data-icon="home"></span>Vue d’ensemble</a>
+      <a href="#cours" data-nav="cours"><span data-icon="book"></span>Le cours<span class="nav-count">6</span></a>
+      <a href="#exercices" data-nav="exercices"><span data-icon="pen"></span>Les exercices<span class="nav-count">36</span></a>
+      <a href="#td" data-nav="td"><span data-icon="list"></span>Tes TD<span class="nav-count">3</span></a>
+      <a href="#quiz" data-nav="quiz"><span data-icon="bolt"></span>Les quiz</a>
+      <a href="#labo" data-nav="labo"><span data-icon="sliders"></span>Labo virtuel</a>
+      <a href="#formules" data-nav="formules"><span data-icon="formula"></span>Fiche de formules</a>
+      <a href="#glossaire" data-nav="glossaire"><span data-icon="list"></span>Glossaire & TP</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-progress"><div><span>Ton parcours</span><strong id="progress-percent">0 %</strong></div><progress id="global-progress" max="98" value="0" aria-label="Chapitres lus, exercices et questions de TD terminés"></progress><p id="progress-caption">À ton rythme, une notion à la fois.</p></div>
+      <a class="download-nav" href="assets/livret-reseaux.pdf" download><span data-icon="download"></span>Le livret complet <span>PDF</span></a>
+      <div class="private-label"><span data-icon="lock"></span>Espace personnel · BUT R&T</div>
+    </div>
+  </aside>
+  <div class="sidebar-scrim" id="scrim" hidden></div>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="topbar-left"><button class="icon-button menu-toggle" id="menu-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="Ouvrir le menu"><span data-icon="menu"></span></button><a class="mobile-brand" href="#accueil" aria-label="Révise tes réseaux, accueil"><img src="assets/logo-mark.svg" alt="" width="30" height="30"></a><span class="breadcrumb">Réseaux de communication <span>/</span> <strong id="page-label">Vue d’ensemble</strong></span></div>
+      <div class="topbar-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Activer le mode sombre" title="Activer le mode sombre"><span id="theme-symbol" aria-hidden="true"></span><span class="theme-label" id="theme-label">Mode sombre</span></button><a class="topbar-quiz" href="#quiz" aria-label="Ouvrir un quiz"><span data-icon="bolt"></span><span>5 minutes pour réviser</span><span aria-hidden="true">↗</span></a></div>
+    </header>
+    <div id="storage-warning" class="storage-warning" hidden>La sauvegarde est indisponible dans ce navigateur. Ta progression reste disponible pendant cette session.</div>
+    <main id="main" tabindex="-1"><div class="loading"><span class="loading-dot"></span>Ton espace de révision se prépare…</div></main>
+    <footer class="footer"><span>Révise tes réseaux · Cours & TP</span><span>Progression enregistrée sur ce navigateur <button id="reset-button" class="text-button">Réinitialiser</button></span></footer>
+  </div>
+  <dialog id="diagram-dialog" class="diagram-dialog"><button id="close-diagram" class="icon-button" aria-label="Fermer le schéma">×</button><img id="diagram-large" src="assets/ftth.png" alt=""><p id="diagram-caption"></p></dialog>
+  <dialog id="reset-dialog" class="reset-dialog"><span class="eyebrow">TA PROGRESSION</span><h2>Repartir de zéro ?</h2><p>Les chapitres lus, exercices et questions de TD terminés, notes et résultats des quiz seront effacés de ce navigateur.</p><div class="button-row"><button class="button secondary" id="cancel-reset">Garder ma progression</button><button class="button danger" id="confirm-reset">Réinitialiser</button></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
